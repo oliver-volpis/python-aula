@@ -1,3 +1,3 @@
 # Python
-## Codigo simples em python
+## Código simples em python
 ### Foi utilizado laços de condição
