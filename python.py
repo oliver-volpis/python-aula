@@ -1,5 +1,5 @@
-nome = str(input('Qual seu nome? '))
-idade = int(input('Qual sua idade? '))
+nome = str(input('Qual o seu nome? '))
+idade = int(input('Qual a sua idade? '))
 
 if (idade<16)
     voto = 'Nao precisa votar'
@@ -11,4 +11,4 @@ else:
     voto = 'Voto obrigatorio'
 
 
-print(f'De acordo com a sua idade, {nome} voce {voto}.')
+print(f'De acordo com a sua idade, {nome} você {voto}.')
