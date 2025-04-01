@@ -3,6 +3,9 @@
 #print("Depositar")
 #print("Sacar")
 
+#Importação de biblioteca
+from datetime import datetime
+
 saldo = 0
 limite = 500
 numero_saques = 0
@@ -11,7 +14,7 @@ usuarios =[]#criei uma lista vazia , pois serão adicionados valores posteriorme
 contas = []
 agencia='0001'
 
-
+#Menu com as opções que o usuário vai escolher
 def menu():
     print('''
         **********Menu**********
@@ -37,6 +40,8 @@ def deposito(valor,saldo):
     return saldo
 
 def saque(saque,saldo):
+
+
    global  numero_saques,limites,limites_saques
     #De acordo com a documentação Python , váriaveis globais não ficam presas ao limite do escopo da função.
    if numero_saques >= limites_saques:
@@ -52,4 +57,11 @@ def saque(saque,saldo):
             saldo -= saque
             numero_saques += 1
             
-        return saldo        
+        return saldo   
+
+def extrato (saldo):  
+    hora = datetime.now() #Obtem a hora atual 
+    horaatual = hora.strftime('%d/%m/%Y/ %H:%M')
+    print('=============Extrato=============')
+    print(f'{horaatual} \nSaldo disponível:{saldo}' )
+    print('\n=============Extrato=============')
