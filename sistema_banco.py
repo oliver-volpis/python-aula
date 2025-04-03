@@ -27,7 +27,7 @@ def menu():
         (q) Sair
     ''')
     return input('Qual opção deseja')
-
+#Função depósito
 def deposito(valor,saldo):
     #  vou receber o valor do depósito e somar ao saldo
     if valor > 0 :
@@ -38,7 +38,7 @@ def deposito(valor,saldo):
         print('Valor do deposito Ínválido.Verifique a quantia digitada.')
     
     return saldo
-
+#Função saque
 def saque(saque,saldo):
 
 
@@ -58,10 +58,36 @@ def saque(saque,saldo):
             numero_saques += 1
             
         return saldo   
-
+#Função extrato
 def extrato (saldo):  
     hora = datetime.now() #Obtem a hora atual 
     horaatual = hora.strftime('%d/%m/%Y/ %H:%M')
     print('=============Extrato=============')
     print(f'{horaatual} \nSaldo disponível:{saldo}' )
     print('\n=============Extrato=============')
+#Função sair
+def sair():
+    print('***************Encerrando o Sistema***************')
+#Função criar usuários
+def novo_usuario(usuario):
+    cpf = int(input('Digite seu cpf (Somente números);'))
+    usuario = filtrar_usuario(cpf,usuarios)
+
+    if usuario:
+        print('Usuário já cadastrado na base de dados!')
+        return
+
+    nome = str('Escreva seu nome completo : ')
+    data_nascimento = input('Informe a data de nascimento (dd--mm--aa) :')
+    endereço = input('Informe seu endereço (Rua , numero,cep,bairro e cidade)')
+    #o append adiciona usuário ao meu banco
+    usuarios.append(f'nome:{nome},data de nascimento:{data_nascimento},endereço:{endereço}')
+    print('Cadastro realizado com sucesso!')
+#Função filtrar usuários
+def filtrar_usuario (cpf,usuarios):
+    #Filtra o usuário com base em um CPF
+    #A Função usa uma coompreensão de lista para verificar aquele que corresponde
+    #ao cpf fornecido
+    #e retorna o primeiro usuário que corresponde com o cpf filtrado.Caso não encontre nada ele retorna NONE(nada).
+    usuarios_filtrados = [usuario for usuario in usuarios if usuarios['cpf'] ==cpf]
+    return usuarios_filtrados[0] if usuarios_filtrados else None
